@@ -7,6 +7,9 @@
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development node --watch index.js",
     "build:ui": "rm -rf dist && cd ../apupapu-frontend && npm run build && cp -r dist ../apupapu-backend",
+    "deploy": "fly deploy",
+    "deploy:full": "npm run build:ui && npm run deploy",
+    "logs:prod": "fly logs",
     "lint": "eslint .",
     "test": "cross-env  NODE_ENV=test node --test"
   },
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
+    "@flydotio/dockerfile": "^0.7.10",
     "@stylistic/eslint-plugin": "^5.5.0",
     "@stylistic/eslint-plugin-js": "^4.4.1",
     "eslint": "^9.38.0",
