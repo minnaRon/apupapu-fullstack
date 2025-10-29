@@ -1,0 +1,7 @@
+POST http://localhost:3001/api/helps
+Content-Type: application/json
+
+{
+  "tittle": "lumityöt",
+  "beans": 20
+}

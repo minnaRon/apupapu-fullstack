@@ -1,0 +1,30 @@
+{
+  "name": "apupapu-backend",
+  "version": "1.0.0",
+  "description": "The application for exchanging favors between people.",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development node --watch index.js",
+    "build:ui": "rm -rf dist && cd ../apupapu-frontend && npm run build && cp -r dist ../apupapu-backend",
+    "lint": "eslint .",
+    "test": "cross-env  NODE_ENV=test node --test"
+  },
+  "author": "Minna Ronka",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "@stylistic/eslint-plugin": "^5.5.0",
+    "@stylistic/eslint-plugin-js": "^4.4.1",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
+    "supertest": "^7.1.4"
+  }
+}
