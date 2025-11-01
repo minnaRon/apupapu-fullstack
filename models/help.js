@@ -11,6 +11,10 @@ const helpSchema = new mongoose.Schema({
     type: Number,
     required: true,
     min: [0, 'Papujen määrä puuttuu vielä']
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }
 })
 

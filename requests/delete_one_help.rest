@@ -1,9 +1,2 @@
-POST http://localhost:3001/api/helps
-Content-Type: application/json
+DELETE http://localhost:3001/api/helps/6903b095d1f52ef24833d68d
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IktvdGl2YWxvIiwiaWQiOiI2OTAyNWFjYzAzZDRiZWMxYjQyMmM2NDYiLCJpYXQiOjE3NjE4NDkyOTIsImV4cCI6MTc2MTkzNTY5Mn0.Q-iyYC7ct9rnytUC3pxV9z50u7ytaOYIknL8uu8aDqk
-
-{
-  "tittle": "renkaanvaihto",
-  "beans": 20,
-  "userId":"69025acc03d4bec1b422c646"
-}

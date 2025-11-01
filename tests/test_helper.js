@@ -1,4 +1,5 @@
 const Help = require('../models/help')
+const User = require('../models/user')
 
 const initialHelps = [
   {
@@ -26,6 +27,14 @@ const helpsInDb = async () => {
   return helps.map(help => help.toJSON())
 }
 
+const usersInDb = async () => {
+  const users = await User.find({})
+  return users.map(u => u.toJSON())
+}
+
 module.exports = {
-  initialHelps, nonExistingId, helpsInDb
+  initialHelps,
+  nonExistingId,
+  helpsInDb,
+  usersInDb,
 }
