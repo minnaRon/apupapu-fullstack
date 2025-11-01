@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const helpSchema = new mongoose.Schema({
-  tittle: {
+  task: {
     type: String,
     required: true,
     minlength: 5,

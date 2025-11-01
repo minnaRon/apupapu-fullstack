@@ -35,14 +35,14 @@ describe('when there is initially some helps saved', () => {
   test('a specific help is within the returned helps', async () => {
     const response = await api.get('/api/helps')
 
-    const contents = response.body.map(e => e.tittle)
+    const contents = response.body.map(e => e.task)
     assert(contents.includes('Lumityöt'))
   })
 
   describe('addition of a new help', () => {
     test('succeeds with valid data', async () => {
       const newhelp = {
-        tittle: 'Lumityöt',
+        task: 'Lumityöt',
         beans: 20,
       }
 
@@ -55,12 +55,12 @@ describe('when there is initially some helps saved', () => {
       const helpsAtEnd = await helper.helpsInDb()
       assert.strictEqual(helpsAtEnd.length, helper.initialHelps.length + 1)
 
-      const contents = helpsAtEnd.map(n => n.tittle)
+      const contents = helpsAtEnd.map(n => n.task)
       assert(contents.includes('Lumityöt'))
     })
 
     test('fails with status code 400 if data invalid', async () => {
-      const newhelp = { tittle: '' }
+      const newhelp = { task: '' }
 
       await api.post('/api/helps').send(newhelp).expect(400)
 
@@ -79,8 +79,8 @@ describe('when there is initially some helps saved', () => {
 
       const helpsAtEnd = await helper.helpsInDb()
 
-      const contents = helpsAtEnd.map(n => n.tittle)
-      assert(!contents.includes(helpToDelete.tittle))
+      const contents = helpsAtEnd.map(n => n.task)
+      assert(!contents.includes(helpToDelete.task))
 
       assert.strictEqual(helpsAtEnd.length, helper.initialHelps.length - 1)
     })

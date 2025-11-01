@@ -18,7 +18,8 @@ helpsRouter.post('/', async (request, response) => {
   const savedHelp = await help.save()
   user.helps = user.helps.concat(savedHelp._id)
   await user.save()
-  response.status(201).json(savedHelp)
+  const helpWithUsername = await Help.findById(savedHelp._id).populate('user', { username: 1, name: 1 })
+  response.status(201).json(helpWithUsername)
 })
 
 helpsRouter.delete('/:id', async (request, response) => {
