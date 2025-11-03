@@ -11,7 +11,8 @@
     "deploy:full": "npm run build:ui && npm run deploy",
     "logs:prod": "fly logs",
     "lint": "eslint .",
-    "test": "cross-env  NODE_ENV=test node --test"
+    "test": "cross-env  NODE_ENV=test node --test",
+    "start:test": "cross-env NODE_ENV=test node --watch index.js"
   },
   "author": "Minna Ronka",
   "license": "ISC",
