@@ -23,7 +23,6 @@ helpsRouter.post('/', async (request, response) => {
 })
 
 helpsRouter.delete('/:id', async (request, response) => {
-  console.log(request.user)
   const helpToDelete = await Help.findById(request.params.id)
   if (!helpToDelete ) {
     return response.status(204).end()
