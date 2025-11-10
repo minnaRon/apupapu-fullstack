@@ -1,4 +1,5 @@
 const express = require('express')
+const helmet = require('helmet')
 const mongoose = require('mongoose')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
@@ -9,6 +10,7 @@ const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 
 const app = express()
+app.use(helmet())
 
 logger.info('connecting to', config.MONGODB_URI)
 
