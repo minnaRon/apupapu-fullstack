@@ -7,7 +7,6 @@ helpsRouter.get('/', async (request, response) => {
 })
 
 helpsRouter.post('/', async (request, response) => {
-  console.log(request.user)
   if (!request.user) {
     return response.status(401).json({ error: 'token not valid' })
   }
@@ -20,6 +19,17 @@ helpsRouter.post('/', async (request, response) => {
   await user.save()
   const helpWithUsername = await Help.findById(savedHelp._id).populate('user', { username: 1, name: 1 })
   response.status(201).json(helpWithUsername)
+})
+
+helpsRouter.put('/:id', async (request, response) => {
+  const helpToUpdate = await Help.findById(request.params.id)
+  if(!helpToUpdate) {
+    return response.status(404).json({ error: 'resource missing' })
+  }
+  Object.assign(helpToUpdate, request.body)
+  await helpToUpdate.save()
+  const updatedHelp = await Help.findById(helpToUpdate._id).populate('user', { username: 1, name: 1 })
+  return response.json(updatedHelp)
 })
 
 helpsRouter.delete('/:id', async (request, response) => {
