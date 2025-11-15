@@ -15,7 +15,8 @@ const helpSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  }
+  },
+  asking: Boolean
 })
 
 helpSchema.set('toJSON', {
